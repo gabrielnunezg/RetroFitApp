@@ -1,14 +1,10 @@
 package com.sng.retrofitgithub;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface PlaceholderApi {
+public interface GetCityService {
 
-    @GET("posts")
-    Call<List<Post>> getPosts();
-
-
+    @GET("/photos")
+    Call<List<RetroCity>> getAllPhotos();
 }

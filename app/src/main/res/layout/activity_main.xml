@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/citiesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="4dp"
         android:onClick="gotoCities"
         android:text="Go to Cities"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +22,7 @@
         android:id="@+id/tempButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="278dp"
+        android:layout_marginBottom="512dp"
         android:onClick="showTemp"
         android:text="Reveal Temperature"
         app:layout_constraintBottom_toTopOf="@+id/citiesButton"
@@ -32,54 +33,50 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="118dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="8dp"
         android:text="The Temperature in Moscow is: "
-        app:layout_constraintBottom_toTopOf="@+id/citiesButton"
-        app:layout_constraintEnd_toStartOf="@+id/tempText"
-        app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tempButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tempButton" />
 
     <TextView
         android:id="@+id/tempText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="464dp"
+        android:layout_width="378dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="512dp"
+        android:gravity="center_horizontal"
         android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.736"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.127" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="217dp"
+        android:layout_marginTop="64dp"
         android:text="Provided by OpenWeather API"
-        app:layout_constraintBottom_toTopOf="@+id/citiesButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <androidx.core.widget.NestedScrollView
-        android:layout_width="343dp"
-        android:layout_height="110dp"
+        android:layout_width="359dp"
+        android:layout_height="347dp"
         android:layout_marginStart="37dp"
         android:layout_marginTop="62dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/citiesButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.326">
 
         <TextView
             android:id="@+id/textview_post"

@@ -72,6 +72,49 @@ public class MainActivity extends AppCompatActivity {
 
     public void showTemp(View view) {
         TextView tempText=(TextView)findViewById(R.id.tempText);
-        tempText.setText("Temp Text");
+
+        Retrofit retrofit2 = new Retrofit.Builder()
+                .baseUrl("https://api.openweathermap.org/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        TempApi tempApi = retrofit2.create(TempApi.class);
+
+        Call<Temp> tempCall = tempApi.getTemp();
+
+        tempCall.enqueue(new Callback<Temp>() {
+            @Override
+
+            public void onResponse(Call<Temp> tempCall, Response<Temp> response) {
+                if (!response.isSuccessful()) {
+                    tempText.setText(tempCall.toString());
+                    tempText.setText("Code: " + response.code());
+
+                    tempText.setText("Temp Success");
+                    return;
+                }
+
+//                <List> temp = response.body();
+//                String tempData = "";
+//                tempData += temp.getId() + "\n";
+//
+//                for (Post post : temp) {
+//                    String postData = "";
+//                    postData += "ID: " + post.getId() + "\n";
+//                    postData += "User ID: " + post.getUserId() + "\n";
+//                    postData += "Title: " + post.getTitle() + "\n";
+//                    postData += "Description: " + post.getDescription() + "\n\n";
+//
+//                    tempText.append(postData);
+//                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Temp> call, Throwable t) {
+                tempText.setText(t.getMessage());
+                tempText.setText("Temp Fail");
+            }
+        });
     }
 }
